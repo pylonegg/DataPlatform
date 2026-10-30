@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fabric-data-platform-framework"
+version = "0.1.0"
+description = "Reusable contract tooling for a Microsoft Fabric data platform."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "openpyxl>=3.1",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+sqlserver = [
+    "pyodbc>=5.1",
+]
+dev = [
+    "pyodbc>=5.1",
+]
+
+[project.scripts]
+dataplatform = "framework.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["framework*"]
